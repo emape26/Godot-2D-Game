@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3hpeydgqq1wh"]
+
+[ext_resource type="Script" uid="uid://b42ts7t6bciu8" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://x4ksvtpg1qnh" path="res://Sprites/gun.png" id="2_oduel"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xjght"]
+radius = 8.985725
+height = 29.999666
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+rotation = 0.0035632253
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3.8146973e-06, 4.7683716e-07)
+scale = Vector2(4.82, 4.82)
+texture = ExtResource("2_oduel")
+region_enabled = true
+region_rect = Rect2(16.414875, 12.417535, 9.450356, 5.9194517)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.571958
+shape = SubResource("CapsuleShape2D_xjght")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

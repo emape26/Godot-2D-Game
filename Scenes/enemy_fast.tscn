@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://3ai2w8a2w0ou"]
+
+[ext_resource type="Script" uid="uid://tct16luc08cg" path="res://Scripts/enemy.gd" id="1_y3yis"]
+[ext_resource type="Texture2D" uid="uid://duadf7q1158ol" path="res://Sprites/alien.png" id="2_y3yis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3yis"]
+atlas = ExtResource("2_y3yis")
+region = Rect2(408, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60amu"]
+atlas = ExtResource("2_y3yis")
+region = Rect2(432, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su8iu"]
+atlas = ExtResource("2_y3yis")
+region = Rect2(456, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmj4m"]
+atlas = ExtResource("2_y3yis")
+region = Rect2(480, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0830c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3yis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60amu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su8iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmj4m")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ghaa6"]
+radius = 32.0
+height = 74.0
+
+[node name="enemy_fast" type="CharacterBody2D" unique_id=221060737]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_y3yis")
+health = 2
+speed = 150.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1191924367]
+texture_filter = 1
+scale = Vector2(4.3, 4.3)
+sprite_frames = SubResource("SpriteFrames_0830c")
+animation = &"run_right"
+frame_progress = 0.86096954
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=153184105]
+shape = SubResource("CapsuleShape2D_ghaa6")

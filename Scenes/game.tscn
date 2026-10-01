@@ -1,0 +1,386 @@
+[gd_scene load_steps=31 format=3 uid="uid://dpkdl70syixj8"]
+
+[ext_resource type="Script" uid="uid://v65jl0uvgsbl" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://mto0of25iik3" path="res://Sprites/moon.png" id="2_i6g32"]
+[ext_resource type="PackedScene" uid="uid://70braesfgb4x" path="res://Scenes/player.tscn" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://sdt7ean75nus" path="res://Sprites/moonnew.png" id="3_1l0tm"]
+[ext_resource type="Script" uid="uid://dmaqywjx87kwi" path="res://Scripts/game_over.gd" id="3_wowpa"]
+[ext_resource type="Script" uid="uid://xa2onsir4o3a" path="res://Scripts/wave_manager.gd" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dm2jwyv5rawnf" path="res://Scenes/upgrade_panel.tscn" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://s6gp3m85gufa" path="res://Sprites/bar.png" id="4_v158k"]
+[ext_resource type="Texture2D" uid="uid://ema16tiq4d7q" path="res://Sprites/buttonBAVCK.png" id="7_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://dvb60i0pfbn3f" path="res://Sprites/background.png" id="7_ldgsr"]
+[ext_resource type="Texture2D" uid="uid://b5ond3667jt43" path="res://Sprites/Sprite-0016.png" id="7_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://t332mdp2gi53" path="res://Sprites/Sprite-0014.png" id="7_rku1e"]
+[ext_resource type="Texture2D" uid="uid://csbk7qgebmdks" path="res://Sprites/butMENU.png" id="9_o5yvi"]
+
+[sub_resource type="Curve2D" id="Curve2D_wrm1d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -83.02076, -98.87702, 0, 0, 0, 0, 1249.0105, -101.918015, 0, 0, 0, 0, 1250, 708, 0, 0, 0, 0, -85.989624, 702.93164, 0, 0, 0, 0, -83.02076, -98.87702)
+}
+point_count = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1phco"]
+texture = ExtResource("7_rfjv2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb51f"]
+bg_color = Color(0.12591082, 0.12591085, 0.12591076, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfjv2"]
+bg_color = Color(0.21568628, 0.13725491, 0.38039216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 0.5411765, 0.92941177, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1phco"]
+bg_color = Color(0.21568628, 0.13725491, 0.38039216, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 0.5411765, 0.92941177, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfjv2"]
+atlas = ExtResource("9_o5yvi")
+region = Rect2(9.324593, 4.928261, 75.517296, 26.333118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
+atlas = ExtResource("9_o5yvi")
+region = Rect2(12.193058, 59.218132, 71.8176, 25.682365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb51f"]
+atlas = ExtResource("9_o5yvi")
+region = Rect2(8.826103, 30.697086, 76.38781, 26.769318)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnt18"]
+atlas = ExtResource("7_rku1e")
+region = Rect2(8.332571, 0, 15.179251, 14.518109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewbju"]
+atlas = ExtResource("7_rku1e")
+region = Rect2(9.370928, 30.112503, 14.012207, 13.678535)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qyi"]
+atlas = ExtResource("7_rku1e")
+region = Rect2(8.449293, 14.497579, 16.39942, 15.181899)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5yvi"]
+texture = ExtResource("7_ldgsr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldgsr"]
+atlas = ExtResource("7_h4fw4")
+region = Rect2(12.461506, 9.029631, 76.47139, 26.45595)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5yvi"]
+atlas = ExtResource("7_h4fw4")
+region = Rect2(13.13295, 64.09658, 75.56647, 25.06031)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rku1e"]
+atlas = ExtResource("7_h4fw4")
+region = Rect2(11.357002, 36.688255, 76.790016, 28.039513)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0tm"]
+size = Vector2(32, 655)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v158k"]
+size = Vector2(1077, 86.5)
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_wrm1d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 785
+texture_filter = 1
+position = Vector2(577.75006, 330.00003)
+scale = Vector2(4.517578, 5.156251)
+texture = ExtResource("3_1l0tm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
+position = Vector2(1.3834751, -49.2606)
+texture = ExtResource("4_v158k")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(57.726597, 62.582863)
+scale = Vector2(0.86901873, 0.8593462)
+curve = SubResource("Curve2D_wrm1d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-83.02076, -98.87702)
+rotation = -0.0022829701
+scale = Vector2(0.989622, 1.0136646)
+
+[node name="GroundColour" type="CanvasLayer" parent="."]
+layer = -20
+
+[node name="ColorRect" type="ColorRect" parent="GroundColour"]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 1150.0
+offset_bottom = 646.0
+color = Color(1, 0.9882353, 0.99215686, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundColour"]
+visible = false
+texture_filter = 1
+position = Vector2(577.75006, 330.00003)
+scale = Vector2(4.5175776, 5.156251)
+texture = ExtResource("2_i6g32")
+
+[node name="Player" parent="." instance=ExtResource("2_qxrlw")]
+unique_name_in_owner = true
+position = Vector2(550, 279)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("3_wowpa")
+
+[node name="Panel" type="Panel" parent="GameOver"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -41.0
+offset_right = -103.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_1phco")
+
+[node name="ScoreList" type="VBoxContainer" parent="GameOver"]
+unique_name_in_owner = true
+offset_left = 481.0
+offset_top = 229.0
+offset_right = 791.0
+offset_bottom = 545.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23137255)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.43400002
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -197.232
+offset_right = 154.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 62
+text = "GAME OVER"
+
+[node name="NameInput" type="LineEdit" parent="GameOver"]
+unique_name_in_owner = true
+process_mode = 3
+offset_left = 468.0
+offset_top = 435.0
+offset_right = 671.5625
+offset_bottom = 484.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nb51f")
+
+[node name="SubmitButton" type="Button" parent="GameOver"]
+unique_name_in_owner = true
+process_mode = 3
+offset_left = 455.0
+offset_top = 501.0
+offset_right = 692.0
+offset_bottom = 594.0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_rfjv2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfjv2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1phco")
+text = "SUBMIT"
+
+[node name="ReturnToMeni" type="TextureButton" parent="GameOver"]
+process_mode = 3
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -518.0
+offset_top = 207.0
+offset_right = -443.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.8, 4.8)
+texture_normal = SubResource("AtlasTexture_rfjv2")
+texture_pressed = SubResource("AtlasTexture_1phco")
+texture_hover = SubResource("AtlasTexture_nb51f")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ControlPause" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseButton" type="TextureButton" parent="UI/ControlPause"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 0
+offset_left = 117.0
+offset_top = 21.0
+offset_right = 132.0
+offset_bottom = 35.0
+scale = Vector2(4.8, 4.8)
+texture_normal = SubResource("AtlasTexture_nnt18")
+texture_pressed = SubResource("AtlasTexture_ewbju")
+texture_hover = SubResource("AtlasTexture_85qyi")
+
+[node name="PauseMeni" type="Control" parent="UI"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="UI/PauseMeni"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 261.0
+offset_top = 59.0
+offset_right = 843.0
+offset_bottom = 622.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_o5yvi")
+
+[node name="BackToTheGame" type="TextureButton" parent="UI/PauseMeni/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 107.0
+offset_top = 127.0
+offset_right = 183.0
+offset_bottom = 153.0
+scale = Vector2(4.8, 4.8)
+texture_normal = SubResource("AtlasTexture_ldgsr")
+texture_pressed = SubResource("AtlasTexture_o5yvi")
+texture_hover = SubResource("AtlasTexture_rku1e")
+
+[node name="ReturnToMeni" type="TextureButton" parent="UI/PauseMeni/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = 17.5
+offset_right = -112.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.8, 4.8)
+texture_normal = SubResource("AtlasTexture_rfjv2")
+texture_pressed = SubResource("AtlasTexture_1phco")
+texture_hover = SubResource("AtlasTexture_nb51f")
+
+[node name="WaveLable" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -62.0
+offset_right = 271.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21568628, 0.13725491, 0.38039216, 1)
+theme_override_font_sizes/font_size = 86
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 896.0
+offset_top = 39.0
+offset_right = 1081.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(0.21568628, 0.13725491, 0.38039216, 1)
+theme_override_font_sizes/font_size = 24
+text = "34"
+
+[node name="WaveManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_wrm1d")
+
+[node name="UpgradePanel" parent="." instance=ExtResource("4_3dryh")]
+unique_name_in_owner = true
+visible = false
+offset_left = 360.0
+offset_top = 253.0
+offset_right = 400.0
+offset_bottom = 293.0
+scale = Vector2(1.0690895, 1.134898)
+
+[node name="ArenaWalls" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ArenaWalls"]
+position = Vector2(1062, 317)
+shape = SubResource("RectangleShape2D_1l0tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaWalls"]
+position = Vector2(83, 317.5)
+shape = SubResource("RectangleShape2D_1l0tm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ArenaWalls"]
+position = Vector2(577, 49.75)
+shape = SubResource("RectangleShape2D_v158k")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ArenaWalls"]
+position = Vector2(564, 645)
+shape = SubResource("RectangleShape2D_v158k")
+
+[connection signal="health_down" from="Player" to="." method="_on_player_health_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOver/SubmitButton" to="GameOver" method="_on_submit_button_pressed"]
+[connection signal="pressed" from="GameOver/ReturnToMeni" to="." method="_on_return_to_meni_pressed"]
+[connection signal="pressed" from="UI/ControlPause/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UI/PauseMeni/Panel/BackToTheGame" to="." method="_on_back_to_the_game_pressed"]
+[connection signal="pressed" from="UI/PauseMeni/Panel/ReturnToMeni" to="." method="_on_return_to_meni_pressed"]

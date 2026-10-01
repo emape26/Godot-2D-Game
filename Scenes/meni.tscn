@@ -1,0 +1,170 @@
+[gd_scene load_steps=25 format=3 uid="uid://c7235vxgio8x"]
+
+[ext_resource type="Texture2D" uid="uid://ci2gdm52wv772" path="res://Sprites/sky.png" id="1_k0pra"]
+[ext_resource type="Texture2D" uid="uid://dfyqqcjdmvve4" path="res://Sprites/playBut.png" id="1_wvvuy"]
+[ext_resource type="Script" uid="uid://cn7ds0sg7yauk" path="res://Scripts/buttonstart.gd" id="1_x4xk8"]
+[ext_resource type="Script" uid="uid://vav786fs0bgn" path="res://Scripts/button_quit.gd" id="2_jgi36"]
+[ext_resource type="Texture2D" uid="uid://dlj1et64d7fr7" path="res://Sprites/quitbtn.png" id="3_ujjif"]
+[ext_resource type="Texture2D" uid="uid://bknkk84gaijvr" path="res://Sprites/Sprite-0010-Sheet.png" id="6_0svma"]
+[ext_resource type="Texture2D" uid="uid://c6wl2hqmq5bee" path="res://Sprites/trophy.png" id="6_vaxux"]
+[ext_resource type="Script" uid="uid://dvrumiud5v4gw" path="res://Scripts/trophy_btn.gd" id="7_c8yqd"]
+[ext_resource type="Script" uid="uid://i1ddqrsbrjwe" path="res://Scripts/high_score_pop.gd" id="9_s7l46"]
+[ext_resource type="Texture2D" uid="uid://dvb60i0pfbn3f" path="res://Sprites/background.png" id="10_p8c6e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaxux"]
+texture = ExtResource("1_k0pra")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujjif"]
+atlas = ExtResource("1_wvvuy")
+region = Rect2(11.446999, 6.2627134, 73.099144, 24.642704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epqrm"]
+atlas = ExtResource("1_wvvuy")
+region = Rect2(13.961119, 57.88376, 70.01114, 23.189514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0pra"]
+atlas = ExtResource("1_wvvuy")
+region = Rect2(10.505005, 31.291122, 74.40331, 24.859505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0svma"]
+atlas = ExtResource("3_ujjif")
+region = Rect2(12.893034, 3.92037, 74.59205, 25.808687)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaxux"]
+atlas = ExtResource("3_ujjif")
+region = Rect2(14.892204, 56.835308, 70.94353, 22.987164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wexce"]
+atlas = ExtResource("3_ujjif")
+region = Rect2(14.0061, 29.743134, 74.10179, 25.574059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8c6e"]
+atlas = ExtResource("6_vaxux")
+region = Rect2(0.9589691, 4.2430763, 28.131718, 25.850208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iix3q"]
+atlas = ExtResource("6_vaxux")
+region = Rect2(1.1321144, 64.7721, 26.903263, 23.217552)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrkxa"]
+atlas = ExtResource("6_vaxux")
+region = Rect2(1.257904, 36.388252, 27.517487, 25.432297)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8yqd"]
+atlas = ExtResource("6_0svma")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7l46"]
+atlas = ExtResource("6_0svma")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8c6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8yqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7l46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iix3q"]
+texture = ExtResource("10_p8c6e")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vaxux")
+
+[node name="Buttonstart" type="TextureButton" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 392.00003
+offset_top = 155.0
+offset_right = 465.00003
+offset_bottom = 179.0
+scale = Vector2(4.82, 4.82)
+texture_normal = SubResource("AtlasTexture_ujjif")
+texture_pressed = SubResource("AtlasTexture_epqrm")
+texture_hover = SubResource("AtlasTexture_k0pra")
+script = ExtResource("1_x4xk8")
+
+[node name="ButtonQuit" type="TextureButton" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 394.0
+offset_top = 291.0
+offset_right = 468.0
+offset_bottom = 316.0
+scale = Vector2(4.8, 4.8)
+texture_normal = SubResource("AtlasTexture_0svma")
+texture_pressed = SubResource("AtlasTexture_vaxux")
+texture_hover = SubResource("AtlasTexture_wexce")
+script = ExtResource("2_jgi36")
+
+[node name="TrophyBtn" type="TextureButton" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 777.00006
+offset_top = 217.0
+offset_right = 805.00006
+offset_bottom = 242.0
+scale = Vector2(4.8, 4.8)
+texture_normal = SubResource("AtlasTexture_p8c6e")
+texture_pressed = SubResource("AtlasTexture_iix3q")
+texture_hover = SubResource("AtlasTexture_lrkxa")
+script = ExtResource("7_c8yqd")
+popup_path = NodePath("../../HighScorePop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(571, 338)
+scale = Vector2(4.8, 4.8)
+sprite_frames = SubResource("SpriteFrames_p8c6e")
+autoplay = "default"
+frame_progress = 0.9018202
+
+[node name="HighScorePop" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 930.0
+offset_top = 144.0
+offset_right = 970.0
+offset_bottom = 184.0
+script = ExtResource("9_s7l46")
+
+[node name="ScorePanel" type="Panel" parent="HighScorePop"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 208.0
+offset_bottom = 290.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_iix3q")
+
+[node name="ScoreList" type="VBoxContainer" parent="HighScorePop/ScorePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 45.0
+offset_right = 201.0
+offset_bottom = 255.0
